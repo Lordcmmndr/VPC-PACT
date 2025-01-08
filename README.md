@@ -48,6 +48,61 @@ This project demonstrates:
 - [My NextWork Portfolio](https://community.nextwork.org/c/i-have-a-question?automatic_login=true)
 
 ---
+# VPC Traffic Flow and Security
+
+This repository contains details and instructions for configuring traffic flow and security within an Amazon Virtual Private Cloud (VPC) on AWS.
+
+## What is Amazon VPC?
+Amazon VPC (Virtual Private Cloud) is a private network in the cloud. It enables users to control how traffic interacts with resources within the network, ensuring secure and efficient data exchange.
+
+## Project Overview
+This project focuses on:
+1. Configuring route tables for data pathways.
+2. Setting up security groups to regulate traffic at the resource level.
+3. Applying network ACLs to manage traffic rules for entire subnets.
+4. Understanding default and custom configurations for traffic control.
+
+### Steps to Configure VPC Traffic Flow and Security
+
+#### 1. Set Up Route Tables
+- Route tables define pathways for data to move within the VPC and externally.
+- Example: To route internet-bound traffic, define a route with:
+  - **Destination**: `0.0.0.0/0`
+  - **Target**: Attached Internet Gateway (e.g., `igw-012a0ad20563af3f`)
+
+#### 2. Configure Security Groups
+- Security groups act as firewalls for individual resources in the VPC.
+- Rules:
+  - **Inbound Rules**: Control incoming traffic. Example: Allow HTTP traffic (Type: HTTP, Source: Anywhere-IPv4).
+  - **Outbound Rules**: Control outgoing traffic. By default, all outgoing traffic is allowed.
+
+#### 3. Set Up Network ACLs (Access Control Lists)
+- Network ACLs provide broader traffic control at the subnet level.
+- Default ACL:
+  - Inbound and outbound rules allow all traffic.
+- Custom ACL:
+  - Inbound and outbound rules deny all traffic unless explicitly customized.
+
+#### 4. Security Groups vs. Network ACLs
+- **Security Groups**: Granular control over individual resource traffic.
+- **Network ACLs**: Broad traffic rules applied at the subnet level.
+
+### Common Challenges
+- **Default Deny Rules**: By default, custom security groups and network ACLs deny all traffic. Ensure to configure necessary rules for intended access.
+
+### Time Taken
+- Configuring VPC traffic flow and security: ~40 minutes.
+
+### Additional Resources
+- [AWS VPC Documentation](https://aws.amazon.com/vpc/documentation/)
+- [My NextWork Portfolio](https://community.nextwork.org/c/i-have-a-question?automatic_login=true)
+
+---
+
+#### About the Author
+This project was created by **Michael Emeruwa**, a student at NextWork.org, as part of a hands-on learning experience.
+
+"Everyone should be in a job they love." Check out [NextWork.org](https://nextwork.org) for more projects and resources.
 
 #### About the Author
 This project was created by **Michael Emeruwa**, a student at NextWork.org, as part of a hands-on learning experience.
