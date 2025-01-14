@@ -98,12 +98,100 @@ This project focuses on:
 - [My NextWork Portfolio](https://community.nextwork.org/c/i-have-a-question?automatic_login=true)
 
 ---
+# Creating a Private Subnet
 
-#### About the Author
-This project was created by **Michael Emeruwa**, a student at NextWork.org, as part of a hands-on learning experience.
+This repository contains details about setting up a private subnet within an Amazon Virtual Private Cloud (VPC). It highlights the differences between private and public subnets and explains how to configure route tables and network ACLs for enhanced security.
 
-"Everyone should be in a job they love." Check out [NextWork.org](https://nextwork.org) for more projects and resources.
+## What is Amazon VPC?
+Amazon Virtual Private Cloud (VPC) is a secure, isolated cloud network that allows you to launch and manage AWS resources. It enables precise control over IP addresses, subnets, and access, ensuring secure, scalable, and customizable deployments.
 
+## Project Overview
+This project demonstrates how to:
+1. Create a private subnet within an Amazon VPC.
+2. Configure a dedicated route table for the private subnet.
+3. Set up a new network ACL to control traffic.
+
+### Key Insights
+- **Public vs Private Subnets**: Public subnets allow interaction with external traffic via the internet, while private subnets are isolated from external access. Private subnets are ideal for storing sensitive data.
+- **CIDR Blocks**: Private and public subnets must have unique CIDR blocks.
+
+### Steps to Create a Private Subnet
+
+#### 1. Configure a Dedicated Route Table
+- By default, private subnets are associated with the public route table.
+- Create a new route table specifically for the private subnet to prevent public access.
+- Configure the route table to allow only internal traffic with a single inbound and outbound rule.
+
+#### 2. Set Up a New Network ACL
+- The default network ACL for the VPC allows all inbound and outbound traffic.
+- Create a new ACL for the private subnet to enhance security.
+- Configure rules to deny all inbound and outbound traffic, ensuring complete isolation.
+
+### Time Taken
+- Creating the private subnet and its associated configurations: ~26 minutes.
+
+### Benefits of Private Subnets
+- Enhanced security for sensitive data.
+- Isolation of internal resources from external traffic.
+
+### Additional Resources
+- [AWS VPC Documentation](https://aws.amazon.com/vpc/documentation/)
+- [My NextWork Portfolio](https://community.nextwork.org/c/i-have-a-question?automatic_login=true)
+
+---
+
+# Launching VPC Resources
+
+This repository contains insights and detailed steps for launching and managing resources within an Amazon Virtual Private Cloud (VPC). It includes instructions for setting up public and private EC2 instances and configuring secure access.
+
+## What is Amazon VPC?
+Amazon VPC is a private section of the AWS cloud, providing isolated and secure environments for launching AWS resources. It ensures that data and resources are protected from public access unless explicitly permitted.
+
+## Project Overview
+This project demonstrates how to:
+1. Set up direct virtual machine (VM) access via SSH.
+2. Launch public and private EC2 instances.
+3. Configure networking settings and security groups.
+
+### Key Insights
+- **Public Server**: Configured to allow public access via the internet.
+- **Private Server**: Isolated from public access and only communicates with the public server for secure operations.
+- **Key Pairs**: Used to establish secure access to EC2 instances via SSH.
+
+### Steps to Launch VPC Resources
+
+#### 1. Set Up Direct VM Access
+- Use SSH (Secure Shell) for direct access to EC2 instances.
+- Generate key pairs (private and public keys) for secure authentication. Ensure the private key file format is `.pem`.
+
+#### 2. Launch a Public Server
+- Update the EC2 instance networking settings to use the custom VPC and the public subnet.
+- Ensure the security group allows public traffic for the required protocols.
+
+#### 3. Launch a Private Server
+- Assign a dedicated security group to the private server.
+- Configure the security group to only allow traffic from the public server's security group.
+
+#### 4. Speed Up VPC Creation
+- Use the VPC creation wizard to quickly set up resources:
+  - Set availability zones (AZs) to 1.
+  - Define CIDR blocks for public and private subnets (e.g., `10.0.0.0/24` for public and `10.0.1.0/24` for private).
+  - Enable DNS for name resolution.
+  - Optionally create NAT gateways to allow private subnets internet access for updates.
+
+### Time Taken
+- Configuring and launching VPC resources: ~60 minutes.
+
+### Benefits of VPC
+- Enhanced security for private resources.
+- Flexible configurations for public and private access.
+- Scalable and isolated architecture.
+
+### Additional Resources
+- [AWS VPC Documentation](https://aws.amazon.com/vpc/documentation/)
+- [My NextWork Portfolio](https://community.nextwork.org/c/i-have-a-question?automatic_login=true)
+
+---
 #### About the Author
 This project was created by **Michael Emeruwa**, a student at NextWork.org, as part of a hands-on learning experience.
 
